@@ -45,6 +45,7 @@ def printByCompany(companyName):
 def printByDate(date):
 	conn = sqlite3.connect('stocks.db')
 	cursor = conn.cursor()
+	date += "-9:30AM"
 	t = (date,)
 	print pandas.read_sql_query("SELECT * FROM 'stocks' WHERE date = ? ",conn,params=t)
 

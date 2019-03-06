@@ -55,7 +55,7 @@ for ticker in tickers:
 				m4.group(1),
 				m4.group(2),
 				m5.group(1),
-				date
+				date + "-9:30AM"
 			)
 		tableController.insert(statement)
 	except:
