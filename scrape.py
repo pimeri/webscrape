@@ -40,7 +40,7 @@ for ticker in tickers:
 
 		url = urlTemplate2.format(TICKER=ticker,PERIOD1=startTime,PERIOD2=endTime)
 		page = session.get(url).text
-		m4 = re.search('"prices":.*"open":([0-9.]*).*"close":([0-9.]*)',page)
+		m4 = re.search('"prices":.*?"open":([0-9.]*).*?"close":[0-9.]*.*?"close":([0-9.]*)',page)
 
 		if (m1 == None or m2 == None or m3 == None or m4 == None or m5 == None):
 			raise Exception('failed ticker')
@@ -58,8 +58,9 @@ for ticker in tickers:
 				date + "-9:30AM"
 			)
 		tableController.insert(statement)
-	except:
-		failed_tickers.append(ticker)
+	except Exception as e:
+		error = "" + ticker + str(e) 
+		failed_tickers.append(error)
 		
 if failed_tickers:
 	print 'failed tickers: ', failed_tickers

@@ -13,8 +13,8 @@ def initTable():
              employees int,
              city text,
              state text,
-             prevclose real,
              openprice real,
+             prevclose real,
              marketcap real,
              date      text)
 
