@@ -34,7 +34,7 @@ for ticker in tickers:
 
 		# regular expressions to capture the data I need
 		m1 = re.search( 'Summary for (.*?) -', page)
-		m2 = re.search('founded in (.*?) and .*? in ([a-zA-z\s]*, [a-zA-z]*)', page)
+		m2 = re.search('(?:incorporated|established|founded) in (.*?) and .*? in ([a-zA-z\s]*, [a-zA-z\s]*)', page)
 		m3 = re.search('\"fullTimeEmployees\":([0-9]*)', page)
 		m5 = re.search( ticker + '":{.*"marketCap":{"raw":([0-9]*)', page)
 
